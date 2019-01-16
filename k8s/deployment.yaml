@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: best-alpaca-ever
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: best-alpaca-ever
+  template:
+    metadata:
+      labels:
+        app: best-alpaca-ever
+    spec:
+      containers:
+        - name: best-alpaca-ever
+          image: wl00887404/best-alpaca-ever
+          env:
+            - name: TZ
+              value: Asia/Taipei
+            - name: credentials
+              valueFrom:
+                configMapKeyRef:
+                  name: best-alpaca-ever
+                  key: credentials
+            - name: members
+              valueFrom:
+                configMapKeyRef:
+                  name: best-alpaca-ever
+                  key: members
+            - name: slack
+              valueFrom:
+                configMapKeyRef:
+                  name: best-alpaca-ever
+                  key: slack
+            - name: tokens
+              valueFrom:
+                configMapKeyRef:
+                  name: best-alpaca-ever
+                  key: tokens
