@@ -1,6 +1,6 @@
 const axios = require("axios");
 const schedule = require("node-schedule");
-const zip = require("lodash/zip");
+const zip = require("./zip");
 
 const env = require("./env");
 const fetchEvents = require("./fetchEvents");
