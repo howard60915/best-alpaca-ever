@@ -108,8 +108,4 @@ const main = async () => {
 
 main();
 
-schedule.scheduleJob({ hour: 0, minute: 0, second: 0 }, main);
-
-schedule.scheduleJob({ second: 42 }, () =>
-  console.log("The answer to life, the universe, and everything!")
-);
+schedule.scheduleJob({ hour: 0, minute: 0, second: 0 }, () => main());
